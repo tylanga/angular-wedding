@@ -1,0 +1,49 @@
+
+<header [class]="headerClass">
+  <div class="inner">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box"><h1>Tyler <span style="color:#CDA500">and</span> Samantha</h1><a (click)="visibilityStatus = !visibilityStatus" id="menu-icon"></a></div>
+      </div>
+      <div [style.visibility]="visibilityStatus ? 'visible' : 'hidden'" *ngIf="!showLinks" class="col-md-8">
+        <div class="box">
+          <nav>
+            <ul>
+              <li *ngFor="let link of links; let i = index">
+                <a 
+                  (click)="scrollTo($event, i)" 
+                  (click)="checkPosition()"
+                  [class]="isActive(i)"
+                  href="#">
+                  {{link}}
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- <header [class]="headerClass">
+    <div class="inner">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box"><h1>Tyler <span style="color:#CDA500">and</span> Samantha</h1><a (click)="showMobile()" href="#" id="menu-icon"></a></div>
+              </div>
+          <label for="show-menu" class="show-menu">Show Menu</label>
+          <input type="checkbox" id="show-menu" role="button">
+          <ul id="menu">
+              <li *ngFor="let link of links; let i = index"><a 
+                (click)="scrollTo($event, i)" 
+                [class]="isActive(i)"
+                href="#">
+                {{link}}
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</header> -->

@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+/* label color */
+.input-field label {
+    color: #000;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #CDA500;
+  }
+  /* label focus color */
+  .input-field input[type=email]:focus + label {
+    color: #CDA500;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #CDA500;
+    box-shadow: 0 1px 0 0 #CDA500;
+  }
+  /* label underline focus color */
+  .input-field input[type=email]:focus {
+    border-bottom: 1px solid #CDA500;
+    box-shadow: 0 1px 0 0 #CDA500;
+  }
+  /* valid color */
+  .input-field .valid {
+    border-bottom: 1px solid #CDA500;
+    box-shadow: 0 1px 0 0 #CDA500;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+
+  .btn {
+    background-color: black;
+    margin-bottom: 5px;
+}
+
+  .btn:hover {
+      background-color: #CDA500;
+  }
+
+  h3 {
+    width: 100%;
+  }
+
+// rsvp card
+
+html, body {
+height: 100%;
+width: 100%;
+margin: 0;
+padding: 0;
+background-color: #BDC3C7;
+font-family: 'Raleway';
+}
+
+.top {
+  background-color: #264356;
+  height: 200px;
+  margin:0;
+  padding:0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
+}
+
+.form {
+  height: auto;
+  width: 400px;
+  background-color: #fff;
+  margin: 150px auto;
+  margin-bottom: 80px;
+  border-radius: 10px;
+  color: #666;
+  padding: 0px 0px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
+}
+
+.info {
+  padding: 10px;
+}
+
+h1 {
+  letter-spacing: 0px;
+}
+
+h1, h2, p {
+  display: block;
+  text-align: center;
+  padding: 0px;
+  margin: 5px 5px;
+  font-size: 32px;
+  font-family: 'Raleway';
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Raleway';
+  font-weight: 400;
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 200;
+  font-family: 'Great Vibes', cursive;
+  font-weight: 200;
+  font-weight: bold;
+}
+
+h4 {
+  color: #CDA500 !important;
+}
+
+
+p {
+  font-size: 1em;
+}
+
+p.line {
+  margin: 0px auto 20px auto;
+  color: #999;
+}
+
+#rsvpEnd>p.line {
+  margin: 10px;
+  text-align: center;
+}
+
+.form input {
+  font-size: 15px;
+  color: #666;
+  // padding: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  // margin: 25px auto 20px;
+  display: block;
+  width: 75%;  
+}
+
+#remove {
+  text-align: right;
+  float: right;
+
+  &:hover{
+    color: red;
+    background-color: white;
+  }
+  &>i {
+    color: red;
+  }
+}
+
+input:focus {
+  border-bottom: 1px solid #264356 !important;
+  box-shadow: 0 1px 0 0 #264356 !important;
+  outline: 0;
+}
+
+a {
+  color: #666;
+  // background-color: #cc919a;
+}
+
+.button {
+  display: inline-block;
+  width: 400px;
+}
+.button {
+  color: white;
+  background-color: #264356;
+  border: none;
+  font-family: 'Raleway';
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px 32px;
+  width: 200px;
+  margin: 20px auto 0px auto; 
+  float:left;
+}
+
+button.accept {
+  border-radius: 0px 0px 10px 0px;
+  &:hover{
+    background-color: green;
+  }
+}
+
+button.regret {
+  border-right: solid 1px grey;
+  border-radius: 0px 0px 0px 10px;
+  &:hover{
+    background-color: red;
+  }
+}
+
+button:hover {
+  background-color: #cc919a;
+  transition: .5s;
+}
+
+button:focus {
+  outline: 0;
+}
+.footer {
+  text-align: center;
+  color: red;
+  font-weight: 600;
+}
+
+.plus1 {
+  color: #666;
+  font-weight: bold;
+  text-align: right;
+  align-content: right;
+}
+
+button.plus1 {
+  color: white;
+  background-color: #264356;
+  &:hover {
+    background-color: #cc919a;
+    transition: .5s;
+  }
+}
+
+.bus {
+  margin-left: -60px;
+  text-align: left;
+  font-size: 10pt;
+}
+
+@media (max-width: 1190px) {
+  .form {
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  
+  .info {
+    padding: 0px;
+    width: 100%;
+  }
+
+  p.line {
+    overflow: hidden;
+    &.add {
+      margin-top: 60px;
+    }
+  }
+
+  .button {
+    border-radius: 10px !important;
+  }
+
+  .plus1 {
+    padding-right: 20px;
+  }
+  
+
+
+}

@@ -1,0 +1,243 @@
+
+    <h3>
+      <img src="assets/date.png" />
+      RSVP
+    </h3>
+
+    <!-- <div class="row">
+        <h3>Please check back to submit your RSVP after we send out the formal invites!</h3>
+    </div> -->
+
+    <!-- <div class="top">
+    </div> -->
+
+  <div class="row">
+    <div class="form row">
+      <div class ="info">
+      <h1>RSVP</h1>
+      <h2>for the wedding of</h2>
+      <h1>Samantha & Tyler</h1>
+        <p class= "line">________________________________________</p>
+        <h2>The Details</h2>
+        <p>Friday, September 28, 2018</p>
+        <p>5:00 PM</p>
+        <br>
+        <h2>Ceremony & Reception</h2>
+        <p>
+          Bella Terre Reception Hall & Vineyard<br />
+          23375 Barrus Rd. Glenwood, IA 51534<br />
+        </p>
+             <p class= "line">________________________________________</p>
+             <div class='footer'>
+               <!-- original form code -->
+
+               <!-- <input [disabled]="!editMode" type="text" placeholder="First Name" id="Uname">
+               <input [disabled]="!editMode" type="text" placeholder="Want to say something?">  -->
+
+               <div class="row" *ngIf="submitted && attending">
+                  <h4>Thank you for submitting your RSVP {{firstName}}!</h4><br>
+                  <p style="color:black">You told us you are bringing  <u><b>{{guestCount}}</b></u> guests and <u><b>{{needBus}}</b></u> to the transportation!</p><br>
+                  <i style="font-size:.75em">If you need to edit your RSVP or you are no longer able to attend, click the button below!</i>
+                </div>
+                <div class="row" *ngIf="submitted && !attending">
+                    <h4>We are so sorry your can't attend {{firstName}}!</h4><br>
+                    <p style="color:black">You told us you are not going to be able to make the wedding!</p><br>
+                    <i style="font-size:.75em">If you are now able to attend, click the "Accept" button below to let us know!</i>
+                </div>
+
+               <!-- if not yet submitted -->
+                  <form *ngIf="editMode">
+                        <input [disabled]="!editMode" placeholder="First Name" id="firstName" name="firstName" [(ngModel)]="firstName" name="firstName" type="text" class="validate">
+                        <input [disabled]="!editMode" placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="lastName" name="lastName" type="text" class="validate">
+                        <input [disabled]="!editMode" placeholder="Email" id="email" [(ngModel)]="email" name="email" type="email" class="validate">
+                        <!-- button for transportation -->
+                        <div id="rsvpEnd" class="col-xs-12">
+                          <a>Need a ride to and from the wedding venue?</a><br>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="bus-yes">
+                              <input [disabled]="!editMode" type="radio" id="bus-yes" class="mdl-radio__button" [(ngModel)]="needBus" name="needBus" value="yes">
+                              <span class="mdl-radio__label">Yes</span>
+                            </label>
+                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="bus-no">
+                              <input [disabled]="!editMode" type="radio" id="bus-no" class="mdl-radio__button" [(ngModel)]="needBus" name="needBus" value="no" checked>
+                              <span class="mdl-radio__label">No</span>
+                            </label>
+                          <p class="line">________________________________________</p>
+
+                          <!-- Guest 1 -->
+                          <div *ngIf="guestCount == 1 || guestCount == 2 || guestCount == 3 || guestCount == 4 || guestCount == 5">
+                          <input [disabled]="!editMode" placeholder="Guest 1 First Name" [(ngModel)]="firstName_1" id="firstName_1" type="text" name="firstName_1" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 1 Last Name" id="lastName_1" [(ngModel)]="lastName_1" name="lastName_1" type="text" class="validate">
+                          <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                              <i class="material-icons right">remove_circle</i>
+                          </button>
+                          <p class="line add">________________________________________</p>
+                          </div>
+                          <!-- Guest 2 -->
+                          <div *ngIf="guestCount == 2 || guestCount == 3 || guestCount == 4 || guestCount == 5">
+                          <input [disabled]="!editMode" placeholder="Guest 2 First Name" id="firstName_2" name="firstName_2" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 2 Last Name" id="lastName_2" name="lastName_2" type="text" class="validate">
+                          <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                              <i class="material-icons right">remove_circle</i>
+                          </button>
+                          <p class="line add">________________________________________</p>
+                          </div>
+                          <!-- Guest 3 -->
+                          <div *ngIf="guestCount == 3 || guestCount == 4 || guestCount == 5">                       
+                          <input [disabled]="!editMode" placeholder="Guest 3 First Name" id="firstName_3" name="firstName_3" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 3 Last Name" id="lastName_3" name="lastName_3" type="text" class="validate">
+                          <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                              <i class="material-icons right">remove_circle</i>
+                          </button>
+                          <p class= "line add">________________________________________</p>
+                          </div>
+                          <!-- Guest 4 -->
+                          <div *ngIf="guestCount == 4 || guestCount == 5">                         
+                          <input [disabled]="!editMode" placeholder="Guest 4 First Name" id="firstName_4" name="firstName_4" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 4 Last Name" id="lastName_4" name="lastName_4" type="text" class="validate">
+                          <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                              <i class="material-icons right">remove_circle</i>
+                          </button>
+                          <p class= "line add">________________________________________</p>
+                          </div> 
+                          <!-- Guest 5 -->
+                          <div *ngIf="guestCount == 5">
+                          <input [disabled]="!editMode" placeholder="Guest 5 First Name" id="firstName_5" name="firstName_5" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 5 Last Name" id="lastName_5" name="lastName_5" type="text" class="validate">
+                          <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                              <i class="material-icons right">remove_circle</i>
+                          </button>
+                          <p class= "line add">________________________________________</p>
+                          </div>                        
+                        </div>
+                         <!-- add guest button -->
+                         <div *ngIf="guestCount == 0" class="col-xs-12 plus1">
+                            Bringing a guest?
+                            <button type="button" (click)="addPlus1()" class="plus1 mdl-js-ripple-effect mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                                <i class="material-icons">add</i>
+                            </button>
+                          </div>
+                        <!-- add another guest button -->
+                        <div *ngIf="guestCount > 0" class="col-xs-12 plus1">
+                          Add another guest?
+                          <button type="button" (click)="addPlus1()" class="plus1 mdl-js-ripple-effect mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                              <i class="material-icons">add</i>
+                          </button>
+                        </div>
+
+                  </form>
+
+                    <!-- <button type="submit" name="action" *ngIf="!edit" class="waves-effect waves-light btn">Update
+                        <i class="material-icons right">send</i>
+                    </button>
+                    <a *ngIf="submitted && edit" (click)="editRSVP()" class="waves-effect waves-light btn"><i class="material-icons right">mobile_edit</i>Edit RSVP</a>
+                    <a (click)="cancelEditRSVP()" *ngIf="submitted && edit" class="waves-effect waves-light btn">Cancel</a> -->
+                
+             </div>
+      </div>
+      <button *ngIf="!submitted" (click)="regretRsvp()" class ="regret button">Regret<i class="material-icons right">thumb_down</i></button>
+      <button *ngIf="!submitted" (click)="addPost()" class ="accept button">Accept<i class="material-icons right">thumb_up</i></button>
+      <button disabled style="background:gray; color:lightgray;" *ngIf="!attending && submitted" (click)="regretRsvp()" class ="regret button">Regret<i class="material-icons right">thumb_down</i></button>
+      <button *ngIf="!attending && submitted" (click)="addPost()" class ="accept button">Accept<i class="material-icons right">thumb_up</i></button>
+      <button *ngIf="submitted && editMode" (click)="editMode = !editMode" class ="regret button">Cancel Edit</button>
+      <button *ngIf="submitted && editMode" (click)="addPost()" class ="accept button">Update <i class="material-icons right">send</i></button>
+      <button *ngIf="submitted && !editMode && attending" (click)="regretRsvp()" class ="regret button">Regret<i class="material-icons right">send</i></button>
+      <button *ngIf="submitted && !editMode && attending" (click)="editRSVP()" class ="accept button">Edit RSVP<i class="material-icons right">edit</i></button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  
+<!-- Old code with labels on the form -->
+
+    <!-- <div class="row" *ngIf="!submitted">
+    <form (ngSubmit)="onSubmit($event)" class="col s12">
+      <div class="row">
+        <div class="input [disabled]="!editMode"-field col s12">
+             <input [disabled]="!editMode" placeholder="First Name" id="firstName" name="firstName" [(ngModel)]="firstName" type="text" class="validate">
+            <label for="firstName">First Name</label>
+          </div>
+        <div class="input [disabled]="!editMode"-field col s12">
+          <input [disabled]="!editMode" placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="lastName" type="text" class="validate">
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input [disabled]="!editMode"-field col s12">
+          <input [disabled]="!editMode" placeholder="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+
+  <div class="row" *ngIf="submitted">
+    <h3>Thank you for your RSVP!</h3>
+  </div>
+
+  <div class="row" [hidden]="!submittedReadOn">
+    <form (ngSubmit)="onSubmit($event)" class="col s12">
+      <div class="row">
+        <div class="input [disabled]="!editMode"-field col s12">
+            <input [disabled]="!editMode" disabled value="{{rsvpName}}" placeholder="First Name" id="firstName" name="firstName" [(ngModel)]="firstName" type="text" class="validate">
+            <label for="firstName">First Name</label>
+          </div>
+        <div class="input [disabled]="!editMode"-field col s12">
+          <input [disabled]="!editMode" disabled value="{{rsvpName}}" placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="lastName" type="text" class="validate">
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input [disabled]="!editMode"-field col s12">
+          <input [disabled]="!editMode" disabled value="{{rsvpEmail}}" placeholder="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <a (click)="editRSVP()" *ngIf="edit" class="waves-effect waves-light btn"><i class="material-icons left" style="margin-left: -150px">mobile_edit</i>Edit RSVP</a>
+    </form>
+  </div>
+
+  <div class="row" [hidden]="!submittedEdit">
+    <form (ngSubmit)="onSubmitUpdate($event)" class="col s12">
+      <div class="row">
+        <div class="input [disabled]="!editMode"-field col s12">
+            <input [disabled]="!editMode" value="{{rsvpName}}" placeholder="First Name" id="firstName" name="firstName" [(ngModel)]="firstName" type="text" class="validate">
+            <label for="firstName">First Name</label>
+          </div>
+        <div class="input [disabled]="!editMode"-field col s12">
+          <input [disabled]="!editMode" value="{{rsvpName}}" placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="lastName" type="text" class="validate">
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input [disabled]="!editMode"-field col s12">
+          <input [disabled]="!editMode" value="{{rsvpEmail}}" placeholder="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <button class="waves-effect waves-light" type="submit" name="action">Update
+          <i class="material-icons right">send</i>
+      </button>
+      <a (click)="editRSVP()" *ngIf="edit" class="waves-effect waves-light btn"><i class="material-icons right">mobile_edit</i>Edit RSVP</a>
+      <a (click)="cancelEditRSVP()" *ngIf="!edit" class="waves-effect waves-light btn">Cancel</a>
+    </form>
+  </div> -->
+
+
+
+
+  
+  
+
+
+  

@@ -1,0 +1,138 @@
+<div class="row">
+    <!-- <div class="col-md-5">
+      <h2>Contacts</h2>
+      <ul class="list-group" *ngFor="let rsvp of rsvps | async; let i = index" [attr.data-index]="i">
+        <li class="list-group-item"
+          (click)="activeRsvp(rsvp)"
+          [class.active]="rsvp === getRsvp">
+          {{rsvp.data.firstName}}
+        </li>
+      </ul>
+      <button class="btn btn-warning" (click)="getRsvp(rsvp.id)">New</button>
+    </div> -->
+    <div class="col-md-5 col-md-offset-2">
+        <!-- <h1 *ngIf="rsvp">A specific post:</h1>
+        
+        <h3>{{ (rsvp | async)?.firstName }}</h3>
+        <p>{{ (rsvp | async)?.lastName }}</p> -->
+
+
+          <div *ngIf="rsvp" class="row">
+            <div class="col-md-12">
+              <h2 *ngIf="rsvp">Contact Details</h2>
+              <h2 *ngIf="!rsvp">New Contact</h2>
+            </div>
+          </div>
+          <div *ngIf="rsvp" class="row">
+            <form #f="ngForm" class="col-md-12">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input [disabled]="!editMode" placeholder="First Name" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName" name="firstName" type="text" class="validate">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input [disabled]="!editMode" placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="lastName" name="lastName" type="text" class="validate">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input [disabled]="!editMode" placeholder="Email" [(ngModel)]="email" id="email" type="email" name="email" class="validate">
+              </div>
+
+
+
+              <div id="rsvpEnd" class="col-xs-12">
+                  <a>Need a ride to and from the wedding venue?</a><br>
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="bus-yes">
+                      <input [disabled]="!editMode" type="radio" id="bus-yes" class="mdl-radio__button" name="needBus" value="yes" [checked]="needBus">
+                      <span class="mdl-radio__label">Yes</span>
+                    </label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="bus-no">
+                      <input [disabled]="!editMode" type="radio" id="bus-no" class="mdl-radio__button" name="needBus" value="no" [checked]="needBus">
+                      <span class="mdl-radio__label">No</span>
+                    </label>
+                  <p class= "line">________________________________________</p>
+
+                  <!-- Guest 1 -->
+                  <div *ngIf="guestCount == 1 || guestCount == 2 || guestCount == 3 || guestCount == 4 || guestCount == 5">
+                  <input [disabled]="!editMode" placeholder="Guest 1 First Name" [(ngModel)]="firstName_1" id="firstName_1" type="text" name="firstName_1" class="validate">
+                  <input [disabled]="!editMode" placeholder="Guest 1 Last Name" id="lastName_1" name="lastName_1" type="text" class="validate">
+                  <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                      <i class="material-icons right">remove_circle</i>
+                  </button>
+                  <p class= "line">________________________________________</p>
+                  </div>
+                  <!-- Guest 2 -->
+                  <div *ngIf="guestCount == 2 || guestCount == 3 || guestCount == 4 || guestCount == 5">
+                  <input [disabled]="!editMode" placeholder="Guest 2 First Name" id="firstName_2" name="firstName_2" type="text" class="validate">
+                  <input [disabled]="!editMode" placeholder="Guest 2 Last Name" id="lastName_2" name="lastName_2" type="text" class="validate">
+                  <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                      <i class="material-icons right">remove_circle</i>
+                  </button>
+                  <p class= "line">________________________________________</p>
+                  </div>
+                  <!-- Guest 3 -->
+                  <div *ngIf="guestCount == 3 || guestCount == 4 || guestCount == 5">                       
+                  <input [disabled]="!editMode" placeholder="Guest 3 First Name" id="firstName_3" name="firstName_3" type="text" class="validate">
+                  <input [disabled]="!editMode" placeholder="Guest 3 Last Name" id="lastName_3" name="lastName_3" type="text" class="validate">
+                  <button [disabled]="!editMode" id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                      <i class="material-icons right">remove_circle</i>
+                  </button>
+                  <p class= "line">________________________________________</p>
+                  </div>
+                  <!-- Guest 4 -->
+                  <div *ngIf="guestCount == 4 || guestCount == 5">                         
+                  <input [disabled]="!editMode" placeholder="Guest 4 First Name" id="firstName_4" name="firstName_4" type="text" class="validate">
+                  <input [disabled]="!editMode" placeholder="Guest 4 Last Name" id="lastName_4" name="lastName_4" type="text" class="validate">
+                  <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                      <i class="material-icons right">remove_circle</i>
+                  </button>
+                  <p class= "line">________________________________________</p>
+                  </div> 
+                  <!-- Guest 5 -->
+                  <div *ngIf="guestCount == 5">
+                  <input [disabled]="!editMode" placeholder="Guest 5 First Name" id="firstName_5" name="firstName_5" type="text" class="validate">
+                  <input [disabled]="!editMode" placeholder="Guest 5 Last Name" id="lastName_5" name="lastName_5" type="text" class="validate">
+                  <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
+                      <i class="material-icons right">remove_circle</i>
+                  </button>
+                  <p class= "line">________________________________________</p>
+                  </div>                        
+                </div>
+                 <!-- add guest button -->
+                 <div *ngIf="guestCount == 0" class="col-xs-12 plus1">
+                    Bringing a guest?
+                    <button type="button" (click)="addPlus1()" class="plus1 mdl-js-ripple-effect mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                        <i class="material-icons">add</i>
+                    </button>
+                  </div>
+                <!-- add another guest button -->
+                <div *ngIf="guestCount > 0" class="col-xs-12 plus1">
+                  Add another guest?
+                  <button type="button" (click)="addPlus1()" class="plus1 mdl-js-ripple-effect mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                      <i class="material-icons">add</i>
+                  </button>
+                </div>
+              
+
+
+
+
+
+
+              <div class="form-group">
+                <button *ngIf="!editMode" type="button" (click)="edit(rsvp)" name="action" class="waves-effect waves-light btn">Edit RSVP
+                    <i class="material-icons right">edit</i>
+                </button>
+                <button *ngIf="editMode" class="btn btn-primary" [disabled]="!f.valid" (click)="saveRsvp()">
+                  Save RSVP
+                  <i class="material-icons right">send</i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteRsvp(rsvp)">Delete RSVP
+                    <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+    </div>
+  </div>

@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "angular-wedding",
+    "production": "angular-wedding",
+    "public": "angular-wedding"
+  }
+}
