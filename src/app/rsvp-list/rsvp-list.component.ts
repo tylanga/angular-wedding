@@ -110,11 +110,34 @@ export class RsvpListComponent implements OnInit {
   //   console.log(this.rsvps.id);
   // }
 
+  saveRsvp() {
+    this.editMode = false;
+    console.log(this);
+    this.afs.collection('rsvps').doc(this.rsvp.id).set({ // creates a custom ID when posting - see above comment
+      'firstName': this.firstName,
+      'lastName': this.lastName,
+      'attending': this.attending,
+      'guestCount': this.guestCount,
+      'firstName_1': this.firstName_1,
+      'lastName_1': this.lastName_1,
+      'firstName_2': this.firstName_2,
+      'lastName_2': this.lastName_2,
+      'firstName_3': this.firstName_3,
+      'lastName_3': this.lastName_3,
+      'firstName_4': this.firstName_4,
+      'lastName_4': this.lastName_4,
+      'firstName_5': this.firstName_5,
+      'lastName_5': this.lastName_5,
+      'needBus': this.needBus,
+      'email': this.email
+    });
+ } // saveRsvp
+
 //   saveRsvp() {
 //     if (this.myRsvp !== null) {
 //        // Get the input value
 //        let rsvp = {
-//           firstName= rsvp.data.myRsvp
+//           firstName = rsvp.data.myRsvp
 //        };
 //        if (!this.editMode) {
 //           console.log(rsvp);
@@ -148,6 +171,30 @@ export class RsvpListComponent implements OnInit {
 
 
 
+  removeGuest() {
+    this.guestCount = this.guestCount - 1;
+  }
+
+  addPlus1() {
+    // alert(this.guestCount);
+    if (this.guestCount < 5) {
+    this.guestCount = this.guestCount + 1;
+    } else if (this.guestCount === 5) {
+      this.guestCount = 5;
+      alert("You have reached the limit of 5 guests - call us if you have an issue!");
+    } else if (this.guestCount > 5) {
+      this.guestCount = 5;
+      alert("You have reached the limit of guest - call us if you have an issue!");
+    }
+    // alert(this.guestCount);
+    // document.getElementById('rsvpEnd').innerHTML += `
+    //   <input placeholder="Guest ` + this.guestCount + ` First Name" id="first_name_` + this.guestCount + `" type="text" class="validate">
+    //   <input placeholder="Guest ` + this.guestCount + ` Last Name" id="last_name_` + this.guestCount + `" type="text" class="validate">
+    //   <p class= "line">________________________________________</p>
+    // `;
+
+  }
+
 
   edit(rsvp) {
     this.rsvp = rsvp;
@@ -161,7 +208,9 @@ export class RsvpListComponent implements OnInit {
 
   activeRsvp(rsvp) {
     this.rsvp = rsvp;
-    console.log(rsvp.needBus);
+    this.rsvpID = rsvp;
+    // console.log(rsvp.needBus);
+    console.log(rsvp.id);
     // set the form element values
     this.firstName = rsvp.data.firstName;
     this.lastName = rsvp.data.lastName;
@@ -179,5 +228,15 @@ export class RsvpListComponent implements OnInit {
     this.lastName_5 = rsvp.data.lastName_5;
     this.needBus = rsvp.data.needBus;
     this.email = rsvp.data.email;
+  }
+
+  needBusChange(x) {
+    // console.log(x.srcElement.value);
+    this.needBus = x.srcElement.value;
+  }
+
+  attendingChange(x) {
+    this.attending = x.srcElement.value;
+    console.log(this.attending);
   }
 }

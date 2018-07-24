@@ -74,8 +74,8 @@
                           </div>
                           <!-- Guest 2 -->
                           <div *ngIf="guestCount == 2 || guestCount == 3 || guestCount == 4 || guestCount == 5">
-                          <input [disabled]="!editMode" placeholder="Guest 2 First Name" id="firstName_2" name="firstName_2" type="text" class="validate">
-                          <input [disabled]="!editMode" placeholder="Guest 2 Last Name" id="lastName_2" name="lastName_2" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 2 First Name" [(ngModel)]="firstName_2" id="firstName_2" name="firstName_2" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 2 Last Name" id="lastName_2" [(ngModel)]="lastName_2" name="lastName_2" type="text" class="validate">
                           <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
                               <i class="material-icons right">remove_circle</i>
                           </button>
@@ -83,8 +83,8 @@
                           </div>
                           <!-- Guest 3 -->
                           <div *ngIf="guestCount == 3 || guestCount == 4 || guestCount == 5">                       
-                          <input [disabled]="!editMode" placeholder="Guest 3 First Name" id="firstName_3" name="firstName_3" type="text" class="validate">
-                          <input [disabled]="!editMode" placeholder="Guest 3 Last Name" id="lastName_3" name="lastName_3" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 3 First Name" [(ngModel)]="firstName_3" id="firstName_3" name="firstName_3" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 3 Last Name" id="lastName_3"[(ngModel)]="lastName_3"  name="lastName_3" type="text" class="validate">
                           <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
                               <i class="material-icons right">remove_circle</i>
                           </button>
@@ -92,8 +92,8 @@
                           </div>
                           <!-- Guest 4 -->
                           <div *ngIf="guestCount == 4 || guestCount == 5">                         
-                          <input [disabled]="!editMode" placeholder="Guest 4 First Name" id="firstName_4" name="firstName_4" type="text" class="validate">
-                          <input [disabled]="!editMode" placeholder="Guest 4 Last Name" id="lastName_4" name="lastName_4" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 4 First Name" [(ngModel)]="firstName_4" id="firstName_4" name="firstName_4" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 4 Last Name" id="lastName_4" [(ngModel)]="lastName_4" name="lastName_4" type="text" class="validate">
                           <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
                               <i class="material-icons right">remove_circle</i>
                           </button>
@@ -101,8 +101,8 @@
                           </div> 
                           <!-- Guest 5 -->
                           <div *ngIf="guestCount == 5">
-                          <input [disabled]="!editMode" placeholder="Guest 5 First Name" id="firstName_5" name="firstName_5" type="text" class="validate">
-                          <input [disabled]="!editMode" placeholder="Guest 5 Last Name" id="lastName_5" name="lastName_5" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 5 First Name" [(ngModel)]="firstName_5" id="firstName_5" name="firstName_5" type="text" class="validate">
+                          <input [disabled]="!editMode" placeholder="Guest 5 Last Name" id="lastName_5" [(ngModel)]="lastName_5" name="lastName_5" type="text" class="validate">
                           <button id="remove" type="button" (click)="removeGuest()" class="btn-flat mdl-js-ripple-effect mdl-js-button" name="action">Remove
                               <i class="material-icons right">remove_circle</i>
                           </button>
